@@ -57,4 +57,11 @@ describe "Range#step" do
     end
   end
 
+  ruby_version_is "1.8.7".."" do
+    it "passes each nth element to the block with Float argument" do
+      a = []
+      (1..2).step(0.4) { |x| a << x }
+      a.should == [1.0, 1.4, 1.8]
+    end
+  end
 end
